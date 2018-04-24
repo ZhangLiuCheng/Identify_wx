@@ -1,0 +1,132 @@
+/**index.wxss**/
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* height: 120%; */
+  animation: bg 5s infinite;
+}
+
+@keyframes bg {
+  0% {
+    /* top: 0; */
+    transform: scale(1);
+  }
+
+  50% {
+    /* top: -20%; */
+    transform: scale(1.2);
+  }
+
+  100% {
+    /* top: 0; */
+    transform: scale(1);
+  }
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.8;
+}
+
+.fuction {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.arraw {
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  right: 0rpx;
+  top: 35%;
+  animation: arraw 2s infinite;
+}
+
+@keyframes arraw {
+  0% {
+    opacity: 0.2;
+    right: 0rpx;
+    /* transform: scale(1); */
+  }
+
+  100% {
+    opacity: 1;
+    right: 50rpx;
+    /* transform: scale(1); */
+  }
+
+  /* 50% {
+    opacity: 1;
+    right: 20rpx;
+
+  }
+
+  100% {
+    opacity: 0;
+    right: 0rpx;
+  } */
+}
+
+.kind-img {
+  width: 130rpx;
+  height: 130rpx;
+  align-self: center;
+  margin-top: 120rpx;
+}
+
+.camera {
+  width: 210rpx;
+  height: 210rpx;
+  background-color: #da7c0c;
+  position: absolute;
+  align-self: center;
+  bottom: 290rpx;
+  border-radius: 120rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.camera-img {
+  width: 80rpx;
+  height: 80rpx;
+  align-self: center;
+  margin-top: 40rpx;
+}
+
+.camera-txt {
+  color: #fff;
+  font-size: 30rpx;
+  align-self: center;
+}
+
+.album {
+  color: #da7c0c;
+  font-size: 35rpx;
+  height: 80rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  line-height: 80rpx;
+  align-self: center;
+  position: absolute;
+  bottom: 100rpx;
+}

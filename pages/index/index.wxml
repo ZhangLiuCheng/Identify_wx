@@ -1,0 +1,26 @@
+<!--index.wxml-->
+
+<view class="container">
+
+  <scroll-view class='bg'>
+    <image class='bg-image' src='{{bgImgs[bgIndex]}}' lazy-load='true' mode='aspectFill'></image>
+  </scroll-view>
+
+  <!-- 蒙层  -->
+  <view class='mask'></view>
+
+  <!-- catchtouchmove 拦截scrollview滑动事件  -->
+  <view class='fuction' catchtouchmove='touchMove' bindtouchstart='touchStart' bindtouchend='touchEnd'>
+
+    <image class='arraw' src='/images/arraw.png' mode='aspectFill'></image>
+
+    <image class='kind-img' src='{{kindImgs[kindIndex]}}' mode='aspectFill' catchtap='kind'></image>
+
+    <view class='camera' catchtap='camera'>
+      <image class='camera-img' src='/images/camera.png' mode='aspectFill'></image>
+      <text class='camera-txt'>拍照</text>
+    </view>
+    <text class='album' catchtap='album'>从相册选图</text>
+  </view>
+
+</view>

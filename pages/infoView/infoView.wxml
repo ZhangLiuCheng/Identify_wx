@@ -1,0 +1,27 @@
+<!--pages/infoView/infoView.wxml-->
+<view class='info' hidden='{{modalHidden}}'>
+  <view class='info-layout' style='margin-top: {{modalTop}}rpx;margin-bottom: {{modalBottom}}rpx;'>
+
+    <!-- 数据出错  -->
+    <view class='error-layout' hidden='{{errorHidden}}'>
+      <image class='error-layout-image' src='/images/error.png'></image>
+      <text class='error-layout-text'>数据加载失败，请检查网络连接</text>
+      <text class='error-layout-text' catchtap='retry'>点击重试</text>
+    </view>
+
+    <!-- 数据加载中  -->
+    <view class='loading-layout' hidden='{{loadingHidden}}'>
+      <image class='loading-layout-image' src='/images/loading.png'></image>
+      <text class='loading-layout-text'>{{modalMsgLoading}}</text>
+      <!-- 修复显示的bug，放空view -->
+      <view style='width:50rpx;height:50rpx;'></view>
+    </view>
+
+    <!-- 数据为空  -->
+    <view class='empty-layout' hidden='{{emptyHidden}}'>
+      <image class='empty-layout-image' src='/images/empty.png'></image>
+      <text class='empty-layout-text'>{{modalMsgEmpty}}</text>
+    </view>
+
+  </view>
+</view>
