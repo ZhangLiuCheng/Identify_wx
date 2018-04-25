@@ -39,6 +39,10 @@ Page({
     clearInterval(this.interval)
   },
 
+  onShareAppMessage: function () {
+
+  },
+
   touchStart: function (res) {
     this.startPoint = res.touches[0]
   },
@@ -103,6 +107,9 @@ Page({
         // that.requestUploadFile(res.tempFilePaths[0], function(success, msg) {
         //   wx.hideLoading()
         // })
+        wx.navigateTo({
+          url: '../identify/identify?path=' + res.tempFilePaths[0] + '&title=' + that.data.kindTitles[that.data.kindIndex],
+        })
       }
     })
   },

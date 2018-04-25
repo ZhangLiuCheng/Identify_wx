@@ -1,0 +1,69 @@
+/* pages/more/more.wxss */
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  width: 100%;
+  padding: 20rpx;
+  font-size: 32rpx;
+  color: #333;
+  text-align: center;
+  display: inline-block;
+}
+
+.item_bg {
+  width: 95%;
+  margin-left: 2.5%;
+  height: 385rpx;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 20rpx solid #FFF;
+  justify-content: flex-end; 
+}
+
+.item_img {
+  width: 95%;
+  height: 385rpx;
+  position: absolute; 
+  z-index: 0;
+}
+
+.item_content {
+  width: 95%;
+  background-color: rgba(100, 100, 100, 0.4);
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item_name {
+  font-size: 40rpx;
+  color: #FFF;
+}
+
+.item_gaili_btn {
+  display: flex;
+  flex-direction: column;
+}
+
+.item_gaili {
+  font-size: 28rpx;
+  color: #FFF;
+  margin-top: 10rpx;
+}
+
+.item_btn {
+  font-size: 24rpx;
+  color: #FFF;
+  width: 150rpx;
+  margin-top: 10rpx;
+  background-color: #da7c0c;
+}

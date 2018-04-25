@@ -1,0 +1,33 @@
+<!--pages/identify/identify.wxml-->
+<view class='container'>
+  <image class='bgImg' mode='aspectFill' src='{{imgPath}}'></image>
+
+  <view class='content'>
+    <image class='img' mode='aspectFill' src='{{imgPath}}'></image>
+
+    <!-- 识别结果 -->
+    <view class='result'>
+      <view class='result_layout'>
+        <image class='result_img' mode='aspectFill' src='{{imgPath}}'></image>
+        <text class='result_gaili'>可信度95%</text>
+      </view>
+      <text class='result_title'>梅花</text>
+
+      <view class='result_func'>
+        <view class='result_func_share'>
+          <image class='result_func_img' src='/images/share.png'></image>
+          <button class='result_func_share_btn' open-type='share'>asd</button>
+        </view>
+
+
+        <text class='result_more' catchtap='more'>更多结果</text>
+      </view>
+
+    </view>
+  </view>
+
+  <!-- 关闭  -->
+  <view class='close' catchtap='close'>
+    <image class='close-img' src='/images/close.png'></image>
+  </view>
+</view>

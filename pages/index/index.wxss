@@ -43,6 +43,7 @@
   height: 100%;
   background-color: #fff;
   opacity: 0.8;
+  position: absolute;
 }
 
 .fuction {
@@ -53,14 +54,23 @@
   flex-direction: column;
 }
 
-.arraw {
+ .arraw {
   width: 80rpx;
   height: 80rpx;
   position: absolute;
   right: 0rpx;
   top: 35%;
   animation: arraw 2s infinite;
-}
+} 
+
+/* .arraw {
+  width: 50rpx;
+  height: 46rpx;
+  position: absolute;
+  right: 0rpx;
+  top: 35%;
+  animation: arraw 2s infinite;
+} */
 
 @keyframes arraw {
   0% {
