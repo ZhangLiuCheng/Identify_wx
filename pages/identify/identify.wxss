@@ -34,6 +34,54 @@
   margin-top: 110rpx;
 }
 
+.identify {
+  width: 95%;
+  height: 300rpx;
+  align-self: center;
+  margin-top: 110rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+}
+
+.identify-layout {
+  display: flex;
+  flex-direction: row;
+}
+
+.identify-layout-image-error {
+  width: 90rpx;
+  height: 90rpx;
+}
+
+
+.identify-layout-image {
+  width: 90rpx;
+  height: 90rpx;
+  animation: a 1s steps(12) infinite;
+}
+
+@keyframes a {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+
+.identify-layout-text {
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  margin-left: 40rpx;
+  color: #FFF;
+}
+
 .result {
   width: 95%;
   height: 300rpx;
@@ -65,12 +113,23 @@
   margin-top: 15rpx;
 }
 
-.result_title {
-  font-size: 45rpx;
-  color: #FFF;
+.result_info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   margin-top: 30rpx;
   margin-left: 30rpx;
-  flex: 1;
+}
+
+.result_info_title {
+  font-size: 45rpx;
+  color: #FFF;
+}
+
+.result_info_extra {
+  font-size: 28rpx;
+  color: #DDD;
+  margin-top: 10rpx;
 }
 
 .result_func {
@@ -106,8 +165,8 @@
 }
 
 .close {
-  width: 140rpx;
-  height: 140rpx;
+  width: 120rpx;
+  height: 120rpx;
   background-color: #da7c0c;
   position: absolute;
   align-self: center;
@@ -118,8 +177,8 @@
 }
 
 .close-img {
-  width: 60rpx;
-  height: 60rpx;
+  width: 40rpx;
+  height: 40rpx;
   align-self: center;
   margin-top: 40rpx;
 }

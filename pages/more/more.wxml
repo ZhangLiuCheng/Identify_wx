@@ -1,15 +1,22 @@
 <!--pages/more/more.wxml-->
 <view class='contaner'>
 
-  <text class='info'>找到5种植物，请鉴定结果</text>
+  <text class='info'>找到{{list.length}}种{{title}}，请鉴定结果</text>
 
   <block wx:for-items="{{list}}" wx:key="{{item}}">
     <view class="item_bg" data-item='{{item}}'>
-      <image class='item_img' lazy-load='true' src='/images/abc.jpg' mode='aspectFill'></image>
+      <image class='item_img' lazy-load='true' src="{{item.imgUrl == undefined ? '/images/default_img.png' : item.imgUrl}}" mode="{{item.imgUrl == undefined ? 'center' : 'aspectFill'}}"></image>
       <view class='item_content'>
-        <text class='item_name'>{{item.name}}</text>
+        <!-- <text class='item_name'>{{item.name}}</text> -->
+      <view class='result_info'>
+        <text class='result_info_title'>{{item.name}}</text>
+        <text class='result_info_extra' hidden='{{item.year == undefined}}'>年份:{{item.year}}</text>
+        <text class='result_info_extra' hidden='{{item.calorie == undefined}}'>卡路里:{{item.calorie}}/100g</text>
+        <text class='result_info_extra' hidden='{{item.root == undefined}}'>{{item.root}}</text>
+
+      </view>
         <view class='item_gaili_btn'>
-          <text class='item_gaili'>可信度：{{item.score}}</text>
+          <text class='item_gaili'>可信度：{{item.scoreTitle}}</text>
           <button class='item_btn'>是这个</button>
         </view>
       </view>

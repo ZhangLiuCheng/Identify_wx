@@ -10,21 +10,22 @@ Page({
     ],
     bgIndex: 0,
 
+    kindTypes: [4, 3, 1, 2, 5],
     kindTitles: [
-      '植物', '动物', '菜品', '车型', 'logo商标', '通用物体'
+      '植物', '动物', '菜品', '车型', '通用物体'
     ],
     kindImgs: [
       '/images/icon_zhiwu1.png',
       '/images/icon_dongwu1.png',
       '/images/icon_caipin.png',
       '/images/icon_car.png',
-      '/images/icon_logo.png',
       '/images/icon_qita.png'
     ],
     kindIndex: 0
   },
 
   onLoad: function () {
+    /*
     let that = this
     this.interval = setInterval(function () {
       // let random = parseInt(Math.random() * 5)
@@ -33,6 +34,7 @@ Page({
         bgIndex: bi
       })
     }, 5000)
+    */
   },
 
   onUnload: function () {
@@ -62,6 +64,8 @@ Page({
       let ki = (this.data.kindIndex + 1) % this.data.kindTitles.length
       this.changeKind(ki)
     }
+    this.startPoint = undefined;
+    this.endPoint = undefined;
   },
   // 切换识别种类
   kind: function () {
@@ -75,6 +79,11 @@ Page({
   },
 
   changeKind : function (newIndex) {
+    let bi = newIndex % 2
+    this.setData({
+      bgIndex: bi
+    })
+
     this.setData({
       kindIndex: newIndex
     })
@@ -100,45 +109,9 @@ Page({
       sourceType: [sourceType],
       sizeType: ['compressed' /*, 'original'*/],
       success: function (res) {
-        // wx.showLoading({
-        //   title: '图片上传中',
-        //   mask: true
-        // })
-        // that.requestUploadFile(res.tempFilePaths[0], function(success, msg) {
-        //   wx.hideLoading()
-        // })
         wx.navigateTo({
-          url: '../identify/identify?path=' + res.tempFilePaths[0] + '&title=' + that.data.kindTitles[that.data.kindIndex],
+          url: '../identify/identify?path=' + res.tempFilePaths[0] + '&title=' + that.data.kindTitles[that.data.kindIndex] + '&imgType=' + that.data.kindTypes[that.data.kindIndex],
         })
-      }
-    })
-  },
-
-  // 上传图片到服务器
-  requestUploadFile: function (filePath, uploadCallback) {
-    wx.uploadFile({
-      url: constants.uploadFile,
-      filePath: filePath,
-      name: 'file',
-      header: {
-        "content-type": "multipart/form-data"
-      },
-      success: function (res) {
-        getApp().print(res)
-        if (res.statusCode == 200) {
-          var result = JSON.parse(res.data)
-          if (result.code == 0) {
-            uploadCallback(true, filePath, result.data[0])
-          } else {
-            uploadCallback(true, filePath, result.message)
-          }
-        } else {
-          uploadCallback(false, filePath, "上传图片不能超过4M")
-        }
-      },
-      fail: function (res) {
-        getApp().print(res)
-        uploadCallback(false, filePath, '上传超时')
       }
     })
   },

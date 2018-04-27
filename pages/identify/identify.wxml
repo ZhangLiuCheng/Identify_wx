@@ -5,20 +5,42 @@
   <view class='content'>
     <image class='img' mode='aspectFill' src='{{imgPath}}'></image>
 
-    <!-- 识别结果 -->
-    <view class='result'>
-      <view class='result_layout'>
-        <image class='result_img' mode='aspectFill' src='{{imgPath}}'></image>
-        <text class='result_gaili'>可信度95%</text>
+    <!-- 识别中 -->
+    <view class='identify' hidden='{{!(identify == 0)}}'>
+      <view class='identify-layout'>
+        <image class='identify-layout-image' src='/images/loading.png'></image>
+        <text class='identify-layout-text'>正在识别中</text>
       </view>
-      <text class='result_title'>梅花</text>
+    </view>
+
+    <!-- 识别失败 -->
+    <view class='identify' hidden='{{!(identify == 1)}}'>
+      <view class='identify-layout'>
+        <image class='identify-layout-image-error' src='/images/error.png'></image>
+        <text class='identify-layout-text'>{{errorMsg}}</text>
+      </view>
+    </view>
+
+    <!-- 识别结果 -->
+    <view class='result' hidden='{{!(identify == 2)}}'>
+      <view class='result_layout'>
+        <image class='result_img' mode='aspectFill' src='{{item.imgUrl}}'></image>
+        <text class='result_gaili'>可信度 {{item.scoreTitle}}</text>
+      </view>
+
+      <view class='result_info'>
+        <text class='result_info_title'>{{item.name}}</text>
+        <text class='result_info_extra' hidden='{{item.year == undefined}}'>年份:{{item.year}}</text>
+        <text class='result_info_extra' hidden='{{item.calorie == undefined}}'>卡路里:{{item.calorie}}/100g</text>
+        <text class='result_info_extra' hidden='{{item.root == undefined}}'>{{item.root}}</text>
+
+      </view>
 
       <view class='result_func'>
         <view class='result_func_share'>
           <image class='result_func_img' src='/images/share.png'></image>
           <button class='result_func_share_btn' open-type='share'>asd</button>
         </view>
-
 
         <text class='result_more' catchtap='more'>更多结果</text>
       </view>

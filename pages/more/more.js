@@ -1,21 +1,40 @@
 // pages/more/more.js
+
+let http = require('../../utils/http.js')
+
+
 Page({
 
   data: {
-
+    title: '',
     list: [
-      { "score": '10%', "name": "美人梅" },
-      { "score": '9%', "name": "梅花" },
-      { "score": '9%', "name": "桃花" },
-      { "score": '6%', "name": "红梅" },
-      { "score": '5%', "name": "榆叶梅" }
     ]
   },
 
   onLoad: function (options) {
+    let that = this;
+    let resultList = getApp().globalData.resultArray
+    this.setData({
+      list: resultList,
+      title : options.title
+    })
     wx.setNavigationBarTitle({
       title: options.title + '识别',
     })
+
+    let i = 0;
+    for (i = 0; i < resultList.length; i++) {
+      let item = resultList[i]
+      if (item.imgUrl == undefined) {
+        http.imageByName(item.name, function (success, res) {
+          console.log(res)
+          item.imgUrl = res.thumbnail_url
+          that.setData({
+            list: resultList
+          })
+        })
+      }
+    }
   },
 
   onReady: function () {
