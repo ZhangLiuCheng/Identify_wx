@@ -14,6 +14,9 @@ Page({
   onLoad: function (options) {
     let that = this;
     let resultList = getApp().globalData.resultArray
+
+    console.log(resultList)
+
     this.setData({
       list: resultList,
       title : options.title

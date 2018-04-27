@@ -18,13 +18,22 @@ var identifyFile = function (filePath, identifyType, uploadCallback) {
       if (res.statusCode == 200 && result.code == 0) {
         if (Array.isArray(result.data.result)) {
           let arr = result.data.result;
+          arrangeResult(arr)
+          sortArray(arr)
+          formatScore(arr)
 
           // 动物识别，特殊处理
-          if (arr.length == 1) {
+          if (identifyType == 3 && arr.length == 1) {
             uploadCallback(false, filePath, arr[0])
             return;
           }
-          arrangeResult(arr)
+
+          // 菜品和车型，特殊处理
+          if ((identifyType == 1 || identifyType == 2) && arr[0].name.indexOf('非') == 0) {
+            uploadCallback(false, filePath, arr[0])
+            return;
+          }
+          
           uploadCallback(true, filePath, arr)
         } else {
           uploadCallback(false, filePath, result.data.result)
@@ -48,6 +57,28 @@ var arrangeResult = function (arr) {
     if (arr[i].keyword != undefined) {
       arr[i].name = arr[i].keyword;
     }
+  }
+}
+
+// 根据分数排序
+var sortArray = function (array) {
+  array.sort(function (obj1, obj2) {
+    if (obj1.score < obj2.score) {
+      return 1;
+    } else if (obj1.score > obj2.score) {
+      return -1;
+    } else {
+      return 0;
+    }
+  })
+}
+
+// 格式化分数
+var formatScore = function (array) {
+  let i = 0;
+  for (i = 0; i < array.length; i++) {
+    let item = array[i]
+    item.scoreTitle = (item.score * 100).toFixed(2) + '%'
   }
 }
 
