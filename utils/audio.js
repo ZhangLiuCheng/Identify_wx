@@ -17,6 +17,7 @@ const playMenuAudio = function () {
 
 const freeMenuAudio = function () {
   if (menuAudioContext != undefined) {
+    menuAudioContext.stop();
     menuAudioContext.destroy();
     menuAudioContext = undefined;
   }
@@ -33,6 +34,7 @@ const playKindAudio = function () {
 
 const freeKindAudio = function () {
   if (kindAudioContext != undefined) {
+    kindAudioContext.stop();
     kindAudioContext.destroy();
     kindAudioContext = undefined;
   }
@@ -49,6 +51,7 @@ const playSuccessAudio = function () {
 
 const freeSuccessAudio = function () {
   if (successAudioContext != undefined) {
+    successAudioContext.stop();
     successAudioContext.destroy();
     successAudioContext = undefined;
   }
@@ -65,6 +68,7 @@ const playFailureAudio = function () {
 
 const freeFailureAudio = function () {
   if (failureAudioContext != undefined) {
+    failureAudioContext.stop();
     failureAudioContext.destroy();
     failureAudioContext = undefined;
   }
@@ -82,6 +86,7 @@ const playUploadAudio = function () {
 
 const freeUploadAudio = function () {
   if (uploadAudioContext != undefined) {
+    uploadAudioContext.stop();
     uploadAudioContext.destroy();
     uploadAudioContext = undefined;
   }
