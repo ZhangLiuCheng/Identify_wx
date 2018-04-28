@@ -13,9 +13,11 @@
   <view class='fuction' catchtouchmove='touchMove' bindtouchstart='touchStart' bindtouchend='touchEnd'>
 
     <image class='arraw' src='/images/arraw2.png' mode='scaleToFill'></image>
+    <text class='arraw-info' hidden='{{hideScrollIngo}}'>可左右滑动切换</text>
 
 
     <image class='kind-img' src='{{kindImgs[kindIndex]}}' mode='aspectFill' catchtap='kind'></image>
+    <text class='kind-info' hidden='{{hideClickInfo}}'>上面logo可以点击哦！</text>
 
     <view class='camera' catchtap='camera'>
       <image class='camera-img' src='/images/camera.png' mode='aspectFill'></image>

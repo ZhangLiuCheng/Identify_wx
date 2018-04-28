@@ -27,8 +27,8 @@
   border-top: 1rpx solid #F4F4F4;
   border-right: 1rpx solid #F4F4F4;
   border-bottom: 20rpx solid #FFF;
-  justify-content: flex-end; 
-   background-color: #F4F4F4 
+  /* justify-content: flex-end;  */
+  background-color: #F4F4F4 
 }
 
 .item_img {
@@ -47,6 +47,8 @@
   padding: 20rpx;
   justify-content: space-between;
   align-items: center;
+  /* margin-top: 185rpx;  */
+  /* transform: translate(0, -100%);  */
 }
 
 .result_info {

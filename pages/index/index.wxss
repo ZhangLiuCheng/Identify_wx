@@ -63,6 +63,16 @@
   animation: arraw 2s infinite;
 }
 
+.arraw-info {
+  position: absolute;
+  top: 35%;
+  font-size: 22rpx;
+  right: 10rpx;
+  color: #fff;
+  padding-top: 65rpx;
+  text-shadow: #f00 3rpx 3rpx 3rpx;
+}
+
 @keyframes arraw {
   0% {
     opacity: 0.3;
@@ -95,16 +105,26 @@
   margin-top: 120rpx;
 }
 
+.kind-info {
+  font-size: 22rpx;
+  color: #fff;
+  align-self: center;
+  margin-top: 5rpx;
+  text-shadow: #f00 3rpx 3rpx 3rpx;
+}
+
 .camera {
   width: 210rpx;
   height: 210rpx;
   background-color: #da7c0c;
-  position: absolute;
   align-self: center;
-  bottom: 290rpx;
   border-radius: 120rpx;
   display: flex;
   flex-direction: column;
+  position: absolute;
+  bottom: 290rpx;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .camera-img {
@@ -129,5 +149,7 @@
   line-height: 80rpx;
   align-self: center;
   position: absolute;
-  bottom: 100rpx;
+  bottom: 100rpx; 
+  left: 50%;
+  transform: translate(-50%, 0);
 }

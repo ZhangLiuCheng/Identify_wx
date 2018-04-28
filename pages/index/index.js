@@ -25,11 +25,23 @@ Page({
       '/images/icon_car.png',
       '/images/icon_qita.png'
     ],
-    kindIndex: 0
+    kindIndex: 0,
+
+    hideClickInfo: true,
+    hideScrollIngo: true
   },
 
   onLoad: function () {
-   
+    
+  },
+
+  onReady: function () {
+    let hideInfo = wx.getStorageSync('hideClickInfo') != '';
+    let scrollInfo = wx.getStorageSync('hideScrollInfo') != '';
+    this.setData({
+      hideClickInfo: hideInfo,
+      hideScrollIngo: scrollInfo
+    })
   },
 
   onUnload: function () {
@@ -57,6 +69,7 @@ Page({
     }
     let distance = this.endPoint.clientX - this.startPoint.clientX
     if (Math.abs(distance) > wx.getSystemInfoSync().windowWidth / 6) {
+      this.hideScrollInfo();
       if (distance < 0) {
         this.data.kindIndex ++;
       } else {
@@ -77,6 +90,7 @@ Page({
 
   // 切换识别种类
   kind: function () {
+    this.hideClickInfo();
     audio.playMenuAudio();
     let that = this;
     wx.showActionSheet({
@@ -129,4 +143,32 @@ Page({
       }
     })
   },
+
+  // 隐藏点击提示
+  hideClickInfo: function () {
+    if (this.data.hideClickInfo) {
+        return;
+    }
+    wx.setStorage({
+      key: "hideClickInfo",
+      data: "true"
+    })
+    this.setData({
+      hideClickInfo: true,
+    })
+  },
+
+  // 隐藏滑动提示
+  hideScrollInfo: function () {
+    if (this.data.hideScrollIngo) {
+      return;
+    }
+    wx.setStorage({
+      key: "hideScrollInfo",
+      data: "true"
+    })
+    this.setData({
+      hideScrollIngo: true,
+    })
+  }
 })
