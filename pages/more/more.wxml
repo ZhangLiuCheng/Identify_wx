@@ -17,7 +17,7 @@
       </view>
         <view class='item_gaili_btn'>
           <text class='item_gaili'>可信度：{{item.scoreTitle}}</text>
-          <button class='item_btn'>是这个</button>
+          <button class='item_btn' bindtap='isThis'>是这个</button>
         </view>
       </view>
 

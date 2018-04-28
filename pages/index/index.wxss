@@ -41,8 +41,8 @@
 .mask {
   width: 100%;
   height: 100%;
-  background-color: #fff;
-  opacity: 0.8;
+  background-color: #FFF;
+  opacity: 0.6;
   position: absolute;
 }
 
@@ -54,27 +54,18 @@
   flex-direction: column;
 }
 
- .arraw {
-  width: 80rpx;
-  height: 80rpx;
-  position: absolute;
-  right: 0rpx;
-  top: 35%;
-  animation: arraw 2s infinite;
-} 
-
-/* .arraw {
+.arraw {
   width: 50rpx;
   height: 46rpx;
   position: absolute;
   right: 0rpx;
   top: 35%;
   animation: arraw 2s infinite;
-} */
+}
 
 @keyframes arraw {
   0% {
-    opacity: 0.2;
+    opacity: 0.3;
     right: 0rpx;
     /* transform: scale(1); */
   }

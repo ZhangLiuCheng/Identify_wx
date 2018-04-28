@@ -43,7 +43,9 @@ var identifyFile = function (filePath, identifyType, uploadCallback) {
       }
     },
     fail: function (res) {
-      uploadCallback(false, filePath, '连接超时，请检查网络或重试')
+      let item = {}
+      item.name = '网络异常或服务器出错'
+      uploadCallback(false, filePath, item)
     }
   })
 }

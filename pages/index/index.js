@@ -56,7 +56,7 @@ Page({
       return;
     }
     let distance = this.endPoint.clientX - this.startPoint.clientX
-    if (Math.abs(distance) > wx.getSystemInfoSync().windowWidth / 5) {
+    if (Math.abs(distance) > wx.getSystemInfoSync().windowWidth / 6) {
       if (distance < 0) {
         this.data.kindIndex ++;
       } else {
@@ -123,7 +123,8 @@ Page({
       sizeType: ['compressed' /*, 'original'*/],
       success: function (res) {
         wx.navigateTo({
-          url: '../identify/identify?path=' + res.tempFilePaths[0] + '&title=' + that.data.kindTitles[that.data.kindIndex] + '&imgType=' + that.data.kindTypes[that.data.kindIndex],
+          url: '../identify/identify?path=' + res.tempFilePaths[0] + '&title=' 
+          + that.data.kindTitles[that.data.kindIndex] + '&imgType=' + that.data.kindTypes[that.data.kindIndex],
         })
       }
     })

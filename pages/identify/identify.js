@@ -2,6 +2,7 @@
 
 let audio = require('../../utils/audio.js')
 let http = require('../../utils/http.js')
+let util = require('../../utils/util.js')
 
 Page({
 
@@ -11,7 +12,8 @@ Page({
     title : '',
     identify : 0,
     item : {},
-    errorMsg: '识别失败，请切换到通用物体识别试试'
+    errorInfo: '识别失败，请切换到通用物体识别试试',
+    moreInfo: '更多结果'
   },
 
   onLoad: function (options) {
@@ -27,19 +29,26 @@ Page({
   },
 
   onUnload: function () {
+    this.unload = true;
     audio.freeFailureAudio();
     audio.freeSuccessAudio();
+    audio.freeUploadAudio();
   },
 
   onReady: function () {
+    audio.playUploadAudio();
     let that = this;
     http.identifyFile(this.data.imgPath, this.data.imgType, function(success, filePath, res) {
+      if (true == that.unload) {
+        return;
+      }
       if (success == false ) {
-        let info = res.name == undefined ? this.data.errorMsg : res.name;
+        let info = res.name == undefined ? that.data.errorMsg : res.name;
         that.setData({
           identify: 1,
-          errorMsg: info
+          errorInfo: info
         })
+        audio.freeUploadAudio();
         audio.playFailureAudio();
         return;
       }
@@ -48,6 +57,10 @@ Page({
       let item = result[0]
 
       http.imageByName(item.name, function (success, res) {
+        if (true == that.unload) {
+          return;
+        }
+        audio.freeUploadAudio();
         audio.playSuccessAudio();
 
         item.imgUrl = res.thumbnail_url
@@ -56,6 +69,11 @@ Page({
           item: item
         })
         getApp().globalData.resultArray = result;
+        if (result.length <= 1 ) {
+          that.setData({
+            moreInfo: '暂无更多结果'
+          })
+        }
       })
     })
   },
@@ -71,9 +89,14 @@ Page({
   },
 
   more: function () {
+    let list = getApp().globalData.resultArray;
+    if (list == undefined || list.length <= 1) {
+      util.showToast('暂无更多结果')
+      return;
+    }
     wx.navigateTo({
       url: '../more/more?title=' + this.data.title,
     })
     audio.playMenuAudio();
-  }
+  },
 })

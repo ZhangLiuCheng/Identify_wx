@@ -1,21 +1,19 @@
 // pages/more/more.js
 
 let http = require('../../utils/http.js')
-
+let util = require('../../utils/util.js')
+let audio = require('../../utils/audio.js')
 
 Page({
 
   data: {
     title: '',
-    list: [
-    ]
+    list: []
   },
 
   onLoad: function (options) {
     let that = this;
     let resultList = getApp().globalData.resultArray
-
-    console.log(resultList)
 
     this.setData({
       list: resultList,
@@ -46,5 +44,15 @@ Page({
 
   onShareAppMessage: function () {
 
+  },
+
+  isThis: function () {
+    audio.playMenuAudio();
+    util.showToast('感谢您的反馈')
+    setTimeout(function () {
+      wx.navigateBack({
+        delta: 1
+      })
+    }, 1000);
   }
 })

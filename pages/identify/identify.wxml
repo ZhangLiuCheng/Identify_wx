@@ -17,7 +17,7 @@
     <view class='identify' hidden='{{!(identify == 1)}}'>
       <view class='identify-layout'>
         <image class='identify-layout-image-error' src='/images/error.png'></image>
-        <text class='identify-layout-text'>{{errorMsg}}</text>
+        <text class='identify-layout-text'>{{errorInfo}}</text>
       </view>
     </view>
 
@@ -42,7 +42,7 @@
           <button class='result_func_share_btn' open-type='share'>asd</button>
         </view>
 
-        <text class='result_more' catchtap='more'>更多结果</text>
+        <text class='result_more' catchtap='more'>{{moreInfo}}</text>
       </view>
 
     </view>

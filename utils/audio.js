@@ -3,14 +3,12 @@ let menuAudioContext;
 let kindAudioContext;
 let successAudioContext;
 let failureAudioContext;
+let uploadAudioContext;
 
 
 // 播放菜单声音
 const playMenuAudio = function () {
-  console.log('11111')
   if (menuAudioContext == undefined) {
-    console.log('22222')
-
     menuAudioContext = wx.createInnerAudioContext();
     menuAudioContext.src = '/audios/menu.mp3';
   }
@@ -26,10 +24,7 @@ const freeMenuAudio = function () {
 
 // 播放分类声音
 const playKindAudio = function () {
-  console.log('11111 kind')
   if (kindAudioContext == undefined) {
-    console.log('22222  kind')
-
     kindAudioContext = wx.createInnerAudioContext();
     kindAudioContext.src = '/audios/kind.mp3';
   }
@@ -45,10 +40,7 @@ const freeKindAudio = function () {
 
 // 播放成功声音
 const playSuccessAudio = function () {
-  console.log('11111 success')
   if (successAudioContext == undefined) {
-    console.log('22222  success')
-
     successAudioContext = wx.createInnerAudioContext();
     successAudioContext.src = '/audios/success.mp3';
   }
@@ -64,10 +56,7 @@ const freeSuccessAudio = function () {
 
 // 播放失败声音
 const playFailureAudio = function () {
-  console.log('11111 failure')
   if (failureAudioContext == undefined) {
-    console.log('22222  failure')
-
     failureAudioContext = wx.createInnerAudioContext();
     failureAudioContext.src = '/audios/failure.mp3';
   }
@@ -78,6 +67,23 @@ const freeFailureAudio = function () {
   if (failureAudioContext != undefined) {
     failureAudioContext.destroy();
     failureAudioContext = undefined;
+  }
+}
+
+// 播放上传声音
+const playUploadAudio = function () {
+  if (uploadAudioContext == undefined) {
+    uploadAudioContext = wx.createInnerAudioContext();
+    uploadAudioContext.src = '/audios/upload.mp3';
+    uploadAudioContext.loop = true;
+  }
+  uploadAudioContext.play();
+}
+
+const freeUploadAudio = function () {
+  if (uploadAudioContext != undefined) {
+    uploadAudioContext.destroy();
+    uploadAudioContext = undefined;
   }
 }
 
@@ -99,6 +105,8 @@ module.exports = {
   playSuccessAudio: playSuccessAudio,
   freeSuccessAudio: freeSuccessAudio,
   playFailureAudio: playFailureAudio,
-  freeFailureAudio: freeFailureAudio
+  freeFailureAudio: freeFailureAudio,
+  playUploadAudio: playUploadAudio,
+  freeUploadAudio: freeUploadAudio
 }
 

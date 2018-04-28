@@ -12,7 +12,8 @@
   <!-- catchtouchmove 拦截scrollview滑动事件  -->
   <view class='fuction' catchtouchmove='touchMove' bindtouchstart='touchStart' bindtouchend='touchEnd'>
 
-    <image class='arraw' src='/images/arraw.png' mode='aspectFill'></image>
+    <image class='arraw' src='/images/arraw2.png' mode='scaleToFill'></image>
+
 
     <image class='kind-img' src='{{kindImgs[kindIndex]}}' mode='aspectFill' catchtap='kind'></image>
 
