@@ -1,17 +1,17 @@
 
-let menuAudioContext;
-let kindAudioContext;
-let successAudioContext;
-let failureAudioContext;
-let uploadAudioContext;
+var menuAudioContext;
+var kindAudioContext;
+var successAudioContext;
+var failureAudioContext;
+var uploadAudioContext;
 
 
 // 播放菜单声音
 const playMenuAudio = function () {
-  if (menuAudioContext == undefined) {
+  // if (menuAudioContext == undefined) {
     menuAudioContext = wx.createInnerAudioContext();
     menuAudioContext.src = '/audios/menu.mp3';
-  }
+  // }
   menuAudioContext.play();
 }
 
@@ -25,10 +25,10 @@ const freeMenuAudio = function () {
 
 // 播放分类声音
 const playKindAudio = function () {
-  if (kindAudioContext == undefined) {
+  // if (kindAudioContext == undefined) {
     kindAudioContext = wx.createInnerAudioContext();
     kindAudioContext.src = '/audios/kind.mp3';
-  }
+  // }
   kindAudioContext.play();
 }
 
@@ -42,10 +42,10 @@ const freeKindAudio = function () {
 
 // 播放成功声音
 const playSuccessAudio = function () {
-  if (successAudioContext == undefined) {
+  // if (successAudioContext == undefined) {
     successAudioContext = wx.createInnerAudioContext();
     successAudioContext.src = '/audios/success.mp3';
-  }
+  // }
   successAudioContext.play();
 }
 
@@ -59,10 +59,10 @@ const freeSuccessAudio = function () {
 
 // 播放失败声音
 const playFailureAudio = function () {
-  if (failureAudioContext == undefined) {
+  // if (failureAudioContext == undefined) {
     failureAudioContext = wx.createInnerAudioContext();
     failureAudioContext.src = '/audios/failure.mp3';
-  }
+  // }
   failureAudioContext.play();
 }
 
@@ -76,11 +76,11 @@ const freeFailureAudio = function () {
 
 // 播放上传声音
 const playUploadAudio = function () {
-  if (uploadAudioContext == undefined) {
+  // if (uploadAudioContext == undefined) {
     uploadAudioContext = wx.createInnerAudioContext();
     uploadAudioContext.src = '/audios/upload.mp3';
     uploadAudioContext.loop = true;
-  }
+  // }
   uploadAudioContext.play();
 }
 
