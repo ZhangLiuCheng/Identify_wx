@@ -120,7 +120,6 @@ Page({
   camera: function () {
     this.chooseImage('camera')
     audio.playMenuAudio();
-    audio.test()
   },
 
   // 相册选取
