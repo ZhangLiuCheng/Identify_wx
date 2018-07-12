@@ -21,6 +21,15 @@ Array.prototype.remove  =  function (val)  {
   }
 };
 
+var shareData = function () {
+  return {
+    title: '识别天下东西，尽在掌握！',
+    path: '/pages/index/index',
+    imageUrl: '/images/icon.png'
+  }
+}
+
 module.exports = {
   showToast: showToast,
+  shareData: shareData
 }

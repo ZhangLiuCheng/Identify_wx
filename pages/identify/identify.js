@@ -80,7 +80,7 @@ Page({
 
 
   onShareAppMessage: function () {
-
+    return util.shareData();
   },
 
   close: function () {

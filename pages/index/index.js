@@ -1,6 +1,8 @@
 //index.js
 
 let audio = require('../../utils/audio.js')
+let util = require('../../utils/util.js')
+
 const app = getApp()
 
 Page({
@@ -32,16 +34,25 @@ Page({
   },
 
   onLoad: function () {
-    
-  },
-
-  onReady: function () {
     let hideInfo = wx.getStorageSync('hideClickInfo') != '';
     let scrollInfo = wx.getStorageSync('hideScrollInfo') != '';
     this.setData({
       hideClickInfo: hideInfo,
       hideScrollIngo: scrollInfo
     })
+    if (hideInfo == false) {
+      wx.showModal({
+        title: '如何切换类别',
+        content: '1.屏幕可以向左滑动。  2.点击上面的按钮。',
+        showCancel: false,
+        success: function (res) {
+          wx.setStorage({
+            key: "hideClickInfo",
+            data: "true"
+          })
+        }
+      })
+    }
   },
 
   onUnload: function () {
@@ -50,7 +61,7 @@ Page({
   },
 
   onShareAppMessage: function () {
-
+    return util.shareData();
   },
 
   touchStart: function (res) {

@@ -43,7 +43,7 @@ Page({
   },
 
   onShareAppMessage: function () {
-
+    return util.shareData();
   },
 
   isThis: function () {
