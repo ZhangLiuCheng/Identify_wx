@@ -1,5 +1,6 @@
 <!--pages/identify/identify.wxml-->
 <view class='container'>
+
   <image class='bgImg' mode='aspectFill' src='{{imgPath}}'></image>
 
   <view class='content'>
@@ -39,17 +40,22 @@
       <view class='result_func'>
         <view class='result_func_share'>
           <image class='result_func_img' src='/images/share.png'></image>
-          <button class='result_func_share_btn' open-type='share'>asd</button>
+          <button class='result_func_share_btn' open-type='share'>分享</button>
         </view>
 
         <text class='result_more' catchtap='more'>{{moreInfo}}</text>
       </view>
-
     </view>
-  </view>
 
-  <!-- 关闭  -->
+     <!-- 关闭  -->
   <view class='close' catchtap='close'>
     <image class='close-img' src='/images/close.png'></image>
+  </view>
+  </view>
+
+ 
+
+  <view class="ad">
+    <ad unit-id="adunit-eb83b9fff30a7f0d"></ad>
   </view>
 </view>

@@ -85,3 +85,13 @@
   margin-top: 10rpx;
   background-color: #da7c0c;
 }
+
+.ad {
+  width: 95%;
+  margin-left: 2.5%;
+  border-left: 1rpx solid #F4F4F4;
+  border-top: 1rpx solid #F4F4F4;
+  border-right: 1rpx solid #F4F4F4;
+  border-bottom: 20rpx solid #FFF;
+  background-color: #F4F4F4 
+}

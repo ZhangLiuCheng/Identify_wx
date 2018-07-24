@@ -21,24 +21,27 @@
 .content {
   width: 100%;
   height: 100%;
+  /* height:calc(100% - 280rpx); */
   position: absolute;
   display: flex;
   flex-direction: column;
   background-color: rgba(100, 100, 100, 0.5);
+  justify-content: space-around;
+  /* padding-bottom: 200rpx; */
 }
 
 .img {
-  width: 480rpx;
-  height: 400rpx;
+  width: 380rpx;
+  height: 300rpx;
   align-self: center;
-  margin-top: 110rpx;
+  margin-top: 20rpx;
 }
 
 .identify {
   width: 95%;
   height: 300rpx;
   align-self: center;
-  margin-top: 110rpx;
+  /* margin-top: 70rpx; */
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
@@ -55,7 +58,6 @@
   width: 90rpx;
   height: 90rpx;
 }
-
 
 .identify-layout-image {
   width: 90rpx;
@@ -86,7 +88,7 @@
   width: 95%;
   height: 300rpx;
   align-self: center;
-  margin-top: 110rpx;
+  /* margin-top: 70rpx; */
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: row;
@@ -146,6 +148,7 @@
 .result_func_share_btn {
   opacity: 0;
   position: absolute;
+  right: 0rpx;
 }
 
 .result_func_img {
@@ -168,14 +171,15 @@
   width: 120rpx;
   height: 120rpx;
   background-color: #da7c0c;
-  position: absolute;
+  /* position: absolute; */
   align-self: center;
-  bottom: 40rpx;
+  /* bottom: 280rpx; */
   border-radius: 70rpx;
   display: flex;
   flex-direction: column;
-  left: 50%;
-  transform: translate(-50%, 0);
+  /* left: 50%;
+  transform: translate(-50%, 0); */
+  margin-bottom: 260rpx;
 }
 
 .close-img {
@@ -183,4 +187,11 @@
   height: 40rpx;
   align-self: center;
   margin-top: 40rpx;
+}
+
+.ad {
+  position: absolute;
+  width: 94%;
+  margin-left: 3%;
+  bottom: 20rpx;
 }

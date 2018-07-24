@@ -25,6 +25,9 @@
     </view>
     <text class='album' catchtap='album'>从相册选图</text>
     
+    <view class="ad">
+        <ad unit-id="adunit-68b127c08faffa92" ></ad>
+    </view>
   </view>
 
 

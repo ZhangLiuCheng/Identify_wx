@@ -22,13 +22,13 @@ Page({
     wx.setNavigationBarTitle({
       title: options.title + '识别',
     })
+    
 
     let i = 0;
     for (i = 0; i < resultList.length; i++) {
       let item = resultList[i]
       if (item.imgUrl == undefined) {
         http.imageByName(item.name, function (success, res) {
-          console.log(res)
           item.imgUrl = res.thumbnail_url
           that.setData({
             list: resultList
