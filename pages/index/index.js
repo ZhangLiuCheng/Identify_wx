@@ -64,6 +64,17 @@ Page({
     return util.shareData();
   },
 
+  clickFill: function () {
+    wx.navigateToMiniProgram({
+      appId: 'wx999e9b27c5006ee4',
+      path: 'pages/index/index?type=1',
+      envVersion: 'release',
+      success(res) {
+        // 打开成功
+      },
+    })
+  },
+
   touchStart: function (res) {
     this.startPoint = res.touches[0]
   },

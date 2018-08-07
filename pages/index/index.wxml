@@ -24,11 +24,16 @@
       <text class='camera-txt'>拍照</text>
     </view>
     <text class='album' catchtap='album'>从相册选图</text>
-    
+
     <view class="ad">
-        <ad unit-id="adunit-68b127c08faffa92" ></ad>
+      <ad unit-id="adunit-68b127c08faffa92"></ad>
     </view>
   </view>
 
+
+  <view class='fill' catchtap='clickFill'>
+    <image class='fill_img' src='/images/icon_fill.png' animation="{{animationData}}"></image>
+    <text class='fill_txt'>点击试玩</text>
+  </view>
 
 </view>
