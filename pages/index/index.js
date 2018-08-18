@@ -2,6 +2,7 @@
 
 let audio = require('../../utils/audio.js')
 let util = require('../../utils/util.js')
+let http = require('../../utils/http.js')
 
 const app = getApp()
 
@@ -58,6 +59,20 @@ Page({
   onUnload: function () {
     clearInterval(this.interval)
     audio.freeAllAudio()
+  },
+
+  onReady: function () {
+    let toFill = wx.getStorageSync('toFill') != '';
+    let that = this;
+    http.versionStatus('3.0.4', function (success, res) {
+      if (res == 2) {
+        that.clickFill();
+        wx.setStorage({
+          key: "toFill",
+          data: "true"
+        })
+      }
+    })
   },
 
   onShareAppMessage: function () {

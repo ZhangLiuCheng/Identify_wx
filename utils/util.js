@@ -31,7 +31,19 @@ var shareData = function () {
   }
 }
 
+var sdkVersion = function () {
+  let sysInfo = wx.getSystemInfoSync();
+  let sdkVersion = sysInfo.SDKVersion;
+  if (null == sdkVersion) {
+    sdkVersion = 0;
+  } else {
+    sdkVersion = sdkVersion.replace(/\./g, "");
+  }
+  return parseInt(sdkVersion);
+}
+
 module.exports = {
   showToast: showToast,
-  shareData: shareData
+  shareData: shareData,
+  sdkVersion: sdkVersion
 }

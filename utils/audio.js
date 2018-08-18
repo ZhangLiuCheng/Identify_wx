@@ -8,6 +8,7 @@ var uploadAudioContext;
 
 // 播放菜单声音
 const playMenuAudio = function () {
+  if (wx.createInnerAudioContext() == undefined) return;
   // if (menuAudioContext == undefined) {
     menuAudioContext = wx.createInnerAudioContext();
     menuAudioContext.src = '/audios/menu.mp3';
@@ -25,6 +26,7 @@ const freeMenuAudio = function () {
 
 // 播放分类声音
 const playKindAudio = function () {
+  if (wx.createInnerAudioContext() == undefined) return;
   // if (kindAudioContext == undefined) {
     kindAudioContext = wx.createInnerAudioContext();
     kindAudioContext.src = '/audios/kind.mp3';
@@ -42,6 +44,7 @@ const freeKindAudio = function () {
 
 // 播放成功声音
 const playSuccessAudio = function () {
+  if (wx.createInnerAudioContext() == undefined) return;
   // if (successAudioContext == undefined) {
     successAudioContext = wx.createInnerAudioContext();
     successAudioContext.src = '/audios/success.mp3';
@@ -59,6 +62,7 @@ const freeSuccessAudio = function () {
 
 // 播放失败声音
 const playFailureAudio = function () {
+  if (wx.createInnerAudioContext() == undefined) return;
   // if (failureAudioContext == undefined) {
     failureAudioContext = wx.createInnerAudioContext();
     failureAudioContext.src = '/audios/failure.mp3';
@@ -76,6 +80,7 @@ const freeFailureAudio = function () {
 
 // 播放上传声音
 const playUploadAudio = function () {
+  if (wx.createInnerAudioContext() == undefined) return;
   // if (uploadAudioContext == undefined) {
     uploadAudioContext = wx.createInnerAudioContext();
     uploadAudioContext.src = '/audios/upload.mp3';

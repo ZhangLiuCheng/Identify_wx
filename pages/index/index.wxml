@@ -31,9 +31,13 @@
   </view>
 
 
-  <view class='fill' catchtap='clickFill'>
+  <!-- <view class='fill' catchtap='clickFill'>
     <image class='fill_img' src='/images/icon_fill.png' animation="{{animationData}}"></image>
-    <text class='fill_txt'>点击试玩</text>
-  </view>
+    <text class='fill_txt'>领红包</text>
+  </view> -->
 
+  <view class='fill' catchtap='clickFill'>
+    <image class='fill_img' src='/images/gift.png'></image>
+    <text class='fill_txt'>领红包</text>
+  </view>
 </view>

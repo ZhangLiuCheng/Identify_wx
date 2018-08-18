@@ -1,5 +1,29 @@
 
 var constants = require('constants.js')
+var defaultHeaderGet = {
+  'content-type': 'application/json'
+};
+var defaultHeaderPost = {
+  "content-type": "application/x-www-form-urlencoded;charset=utf-8"
+};
+
+function getSuccessFunction(listener) {
+  let fuc = function (res) {
+    getApp().print(res)
+    if (res.statusCode == 200 && res.data.code == 0) {
+      listener(true, res.data.data)
+    } else {
+      listener(false, res.data.message == undefined ? "服务器异常" : res.data.message)
+    }
+  }
+  return fuc;
+}
+
+function getFailFunction(listener) {
+  return function (res) {
+    listener(false, '网络或服务器异常')
+  }
+}
 
 // 上传图片到服务器
 var identifyFile = function (filePath, identifyType, uploadCallback) {
@@ -130,8 +154,29 @@ var imageByName = function (name, listener) {
   })
 }
 
+/**
+ * 当前审核状态.
+ * version
+ */
+var versionStatus = function (version, listener) {
+  var that = this
+  var app = getApp()
+  wx.request({
+    method: "POST",
+    url: constants.versionStatus,
+    data: {
+      appName: 'identify',
+      version: version
+    },
+    header: defaultHeaderPost,
+    success: getSuccessFunction(listener),
+    fail: getFailFunction(listener)
+  })
+}
+
 module.exports = {
   identifyFile: identifyFile,
   queryMore: queryMore,
-  imageByName: imageByName
+  imageByName: imageByName,
+  versionStatus: versionStatus
 }
