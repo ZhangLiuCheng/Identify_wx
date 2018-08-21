@@ -65,7 +65,7 @@ Page({
     let toFill = wx.getStorageSync('toFill') != '';
     let that = this;
     http.versionStatus('3.0.4', function (success, res) {
-      if (res == 2) {
+      if (toFill != true && res == 2) {
         that.clickFill();
         wx.setStorage({
           key: "toFill",
