@@ -80,9 +80,19 @@ Page({
   },
 
   clickFill: function () {
+
+    // wx.navigateToMiniProgram({
+    //   appId: 'wx999e9b27c5006ee4',
+    //   path: 'pages/index/index?type=1',
+    //   envVersion: 'release',
+    //   success(res) {
+    //     // 打开成功
+    //   },
+    // })
+
     wx.navigateToMiniProgram({
-      appId: 'wx999e9b27c5006ee4',
-      path: 'pages/index/index?type=1',
+      appId: 'wx1d8abcecdf5c0f0a',
+      path: 'pages/index/index',
       envVersion: 'release',
       success(res) {
         // 打开成功
