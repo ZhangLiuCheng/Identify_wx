@@ -36,7 +36,7 @@
     <text class='fill_txt'>领红包</text>
   </view> -->
 
-  <view class='fill' catchtap='clickFill'>
+  <view class='fill' wx:if="{{appInfo != null}}" catchtap='clickFill'>
     <image class='fill_img' src='/images/gift.png'></image>
     <text class='fill_txt'>领红包</text>
   </view>

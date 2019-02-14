@@ -31,7 +31,9 @@ Page({
     kindIndex: 0,
 
     hideClickInfo: true,
-    hideScrollIngo: true
+    hideScrollIngo: true,
+
+    appInfo: null
   },
 
   onLoad: function () {
@@ -54,6 +56,24 @@ Page({
         }
       })
     }
+
+    this.requestAppInfo();
+  },
+
+  requestAppInfo: function () {
+    let that = this;
+    wx.request({
+      method: "GET",
+      header: {'content-type': 'application/json'},
+      url: 'https://daoliang.oss-cn-shanghai.aliyuncs.com/identify.txt',
+      success: function (res) {
+        if (res.statusCode == 200) {
+          that.setData({
+            appInfo: res.data
+          })
+        }
+      }
+    })
   },
 
   onUnload: function () {
@@ -90,9 +110,14 @@ Page({
     //   },
     // })
 
+    if (this.data.appInfo == null) {
+      return;
+    }
+
+    let appInfo = this.data.appInfo;
     wx.navigateToMiniProgram({
-      appId: 'wx1d8abcecdf5c0f0a',
-      path: 'pages/index/index',
+      appId: appInfo.appId,
+      path: appInfo.appPath,
       envVersion: 'release',
       success(res) {
         // 打开成功
