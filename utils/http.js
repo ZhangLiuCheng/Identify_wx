@@ -27,6 +27,7 @@ function getFailFunction(listener) {
 
 // 上传图片到服务器
 var identifyFile = function (filePath, identifyType, uploadCallback) {
+  console.log("=============")
   wx.uploadFile({
     url: constants.identifyFile,
     filePath: filePath,

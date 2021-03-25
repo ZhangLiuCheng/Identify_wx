@@ -10,17 +10,16 @@
     "navigationBarTitleText": "万物识别",
     "navigationBarTextStyle": "black"
   },
-
   "networkTimeout": {
     "request": 10000,
     "uploadFile": 40000,
     "downloadFile": 40000
   },
-
   "navigateToMiniProgramAppIdList": [
     "wx999e9b27c5006ee4",
     "wx1d8abcecdf5c0f0a",
     "wxbd610eb3d1e66b87",
     "wx11a460902722d69e"
-  ]
+  ],
+  "sitemapLocation": "sitemap.json"
 }

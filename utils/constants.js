@@ -1,6 +1,6 @@
 
-var host = 'https://identify.bestcircler.com/v1/'
-var hostFill = 'https://fill.bestcircler.com/v3/'
+var host = 'https://identify.xbbvip.com/v1/'
+var hostFill = 'https://fill.xbbvip.com/v3/'
 
 
 module.exports = {
